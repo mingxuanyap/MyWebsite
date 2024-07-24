@@ -15,11 +15,15 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <style>
-            /* Custom styles can go here */
+            #body{
+                background-image: url(login-page.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
         </style>
     </head>
     <body class="tw-font-sans tw-text-gray-900 tw-antialiased">
-        <div class="tw-min-h-screen tw-flex tw-flex-col sm:tw-justify-center tw-items-center tw-pt-6 sm:tw-pt-0 tw-bg-gray-100">
+        <div id="body" class="tw-min-h-screen tw-flex tw-flex-col sm:tw-justify-center tw-items-center tw-pt-6 sm:tw-pt-0 tw-bg-gray-100">
             <div>
                 <a href="/">
                     <x-application-logo class="tw-w-20 tw-h-20 tw-fill-current tw-text-gray-500" />
