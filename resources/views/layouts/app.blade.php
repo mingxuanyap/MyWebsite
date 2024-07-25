@@ -172,15 +172,21 @@
             });
         });
     </script>
-    <script src="
-        https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js
-        "></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js"></script>
 
-    @if (Session::has('message'))
+    @if (Session::has('success-create'))
         <script>
             Swal.fire({
                 title: "Success",
                 text: "Resume created successfully!",
+                icon: "success"
+            });
+        </script>
+    @elseif (Session::has('success-edit'))
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "Resume edit successfully!",
                 icon: "success"
             });
         </script>
