@@ -8,11 +8,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::post('/print-pdf', [DashboardController::class, 'printPdf'])->name('print-pdf');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/dashboard/store', [DashboardController::class, 'store'])->name('store');
 Route::get('/editResume', [DashboardController::class, 'edit'])->name('resume.edit');
 Route::post('/editResume/update', [DashboardController::class, 'update'])->name('resume.update');
 Route::get('/viewResume', [DashboardController::class, 'view'])->name('resume.view');
+
 
 
 

@@ -45,7 +45,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                    
+
                         <x-dropdown-link :href="route('resume.view')">
                             {{ __('Resume') }}
                         </x-dropdown-link>
@@ -61,6 +61,15 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+
+                        <!-- Print PDF Form -->
+                        <form method="POST" action="{{ route('print-pdf') }}">
+                            @csrf
+                            <x-dropdown-link :href="route('print-pdf')"
+                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                {{ __('Print Pdf') }}
+                            </x-dropdown-link>
+                        </form>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

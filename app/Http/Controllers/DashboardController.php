@@ -11,6 +11,8 @@ use App\Models\Projects;
 use App\Models\Skills;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class DashboardController extends Controller
 {
@@ -341,5 +343,15 @@ class DashboardController extends Controller
             'skill_info' => $skill_info,
             'language_info' => $language_info
         ]);
+    }
+
+
+    public function printPDF(Request $request){
+
+        $documentTitle = 'Resume';
+                return Pdf::loadView("pdf.resume", compact('documentTitle'))
+                    ->set_option("isPhpEnabled", true)
+                    ->setPaper("a4")
+                    ->stream('docno.pdf');
     }
 }
