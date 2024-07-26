@@ -35,7 +35,7 @@
 
         <header id="header" class="header d-flex flex-column justify-content-center">
 
-            <i class="header-toggle d-xl-none bi bi-list"></i>
+            {{-- <i class="header-toggle d-xl-none bi bi-list" ></i> --}}
 
             <nav id="navmenu" class="navmenu">
                 <ul>
@@ -320,8 +320,7 @@
         </main>
 
         <!-- Scroll Top -->
-        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
+        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
         <!-- Preloader -->
         <div id="preloader"></div>

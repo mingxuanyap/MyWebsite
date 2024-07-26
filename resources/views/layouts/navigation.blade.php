@@ -45,10 +45,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
+                    
                         <x-dropdown-link :href="route('resume.view')">
                             {{ __('Resume') }}
                         </x-dropdown-link>
@@ -59,6 +56,10 @@
 
                         <x-dropdown-link :href="route('resume.edit')">
                             {{ __('Edit') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -95,11 +96,11 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'tw-block': open, 'tw-hidden': !open }" class="tw-hidden sm:tw-hidden">
-        <div class="tw-pt-2 tw-pb-3 tw-space-y-1">
+        {{-- <div class="tw-pt-2 tw-pb-3 tw-space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-        </div>
+        </div> --}}
 
         <!-- Responsive Settings Options -->
         <div class="tw-pt-4 tw-pb-1 tw-border-t tw-border-gray-200">
@@ -109,12 +110,20 @@
             </div>
 
             <div class="tw-mt-3 tw-space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                <x-responsive-nav-link :href="route('resume.view')">
+                    {{ __('Resume') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('resume')">
-                    {{ __('Resume') }}
+                <x-responsive-nav-link :href="route('dashboard')">
+                    {{ __('Create') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('resume.edit')">
+                    {{ __('Edit') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('profile.edit')">
+                    {{ __('Profile') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

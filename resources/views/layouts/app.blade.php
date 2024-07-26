@@ -43,6 +43,7 @@
         </main>
     </div>
 
+
     <script>
         function display_image(input) {
             const file = input.files[0];
