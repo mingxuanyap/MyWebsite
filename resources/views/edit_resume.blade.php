@@ -1,9 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="tw-font-semibold tw-text-xl tw-text-gray-800 tw-leading-tight">
             {{ __('Edit') }}
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
     <div class="tw-py-12">
         <div class="tw-max-w-7xl tw-mx-auto tw-sm:px-6 tw-lg:px-8">
@@ -145,10 +145,12 @@
                                     id="add_education">Add Education</button>
                             </div>
                             <section class="education_section">
+                                {{-- @dd($personal_information->education) --}}
                                 @foreach ($personal_information->education as $educations)
                                 <div
                                     class="tw-card tw-mb-4 tw-p-4 tw-border tw-rounded-lg tw-shadow-sm education_card">
                                     <div class="tw-card-body">
+                                        <input type="hidden" name="education_id[]" value="{{ $educations->id }}">
                                         <div class="tw-mb-4">
                                             <label for="degree_title"
                                                 class="tw-block tw-font-bold tw-text-gray-700">Degree</label>
@@ -211,6 +213,7 @@
                                             <button
                                                 class="tw-bg-red-500 tw-text-white tw-px-2 tw-py-1 tw-rounded-md tw-font-semibold tw-shadow-sm hover:tw-bg-red-400 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-2 focus:tw-ring-red-500 remove_experience tw-hidden">Remove</button>
                                         </div>
+                                        <input type="hidden" name="experience_id[]" value="{{ $experiences->id }}">
                                         <div class="tw-mb-4">
                                             <input type="text" id="job_title" name="job_title[]"
                                                 class="tw-mt-1 tw-block tw-w-full tw-p-2 tw-border tw-rounded tw-border-gray-300 tw-shadow-sm focus:tw-border-indigo-500 focus:tw-ring-indigo-500"
@@ -266,6 +269,7 @@
                                             <button
                                                 class="tw-bg-red-500 tw-text-white tw-px-2 tw-py-1 tw-rounded-md tw-font-semibold tw-shadow-sm hover:tw-bg-red-400 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-2 focus:tw-ring-red-500 remove_project tw-hidden">Remove</button>
                                         </div>
+                                        <input type="hidden" name="project_id[]" value="{{ $project->id }}">
                                         <input type="text" id="project_title" name="project_title[]"
                                             placeholder="Project Title" value="{{ old('project_title', $project->project_title ?? '') }}"
                                             class="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-shadow-sm focus:tw-border-indigo-500 focus:tw-ring-indigo-500">
@@ -299,6 +303,7 @@
                                                 <button
                                                     class="tw-bg-red-500 tw-text-white tw-px-2 tw-py-1 tw-rounded-md tw-font-semibold tw-shadow-sm hover:tw-bg-red-400 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-2 focus:tw-ring-red-500 remove_skill tw-hidden">Remove</button>
                                             </div>
+                                            <input type="hidden" name="skill_id[]" value="{{ $skill->id }}">
                                             <div class="tw-grid tw-grid-cols-10 tw-gap-4">
                                                 <div class="tw-col-span-8">
                                                     <input type="text" id="skill_name" name="skill_name[]"
@@ -337,39 +342,40 @@
                                                 <div class="tw-flex-1">
                                                     <label
                                                         class="tw-block tw-font-bold tw-text-gray-700">Language</label>
+                                                        <input type="hidden" name="language_id[]" value="{{ $language->id }}">
                                                     <select
                                                         class="tw-mt-1 tw-block tw-w-full tw-p-2 tw-border tw-rounded tw-border-gray-300 tw-shadow-sm focus:tw-border-indigo-500 focus:tw-ring-indigo-500"
                                                         id="language" name="language[]">
                                                         <option value="">Add Language</option>
                                                         <!-- Add all the language options here -->
-                                                        <option value="en"
+                                                        <option value="English"
                                                             {{ old('language', $language->language) == 'en' ? 'selected' : '' }}>
                                                             English</option>
-                                                        <option value="ge"
+                                                        <option value="German"
                                                             {{ old('language', $language->language) == 'ge' ? 'selected' : '' }}>
                                                             German</option>
-                                                        <option value="it"
+                                                        <option value="Italian"
                                                             {{ old('language', $language->language) == 'it' ? 'selected' : '' }}>
                                                             Italian</option>
-                                                        <option value="jp"
+                                                        <option value="Japanese"
                                                             {{ old('language', $language->language) == 'jp' ? 'selected' : '' }}>
                                                             Japanese</option>
-                                                        <option value="kr"
+                                                        <option value="Korean"
                                                             {{ old('language', $language->language) == 'kr' ? 'selected' : '' }}>
                                                             Korean</option>
-                                                        <option value="zh"
+                                                        <option value="Mandarin"
                                                             {{ old('language', $language->language) == 'zh' ? 'selected' : '' }}>
                                                             Mandarin</option>
-                                                        <option value="bm"
+                                                        <option value="Malay"
                                                             {{ old('language', $language->language) == 'bm' ? 'selected' : '' }}>
                                                             Malay</option>
-                                                        <option value="ru"
+                                                        <option value="Russian"
                                                             {{ old('language', $language->language) == 'ru' ? 'selected' : '' }}>
                                                             Russian</option>
-                                                        <option value="sp"
+                                                        <option value="Spanish"
                                                             {{ old('language', $language->language) == 'sp' ? 'selected' : '' }}>
                                                             Spanish</option>
-                                                        <option value="th"
+                                                        <option value="Thai"
                                                             {{ old('language', $language->language) == 'th' ? 'selected' : '' }}>
                                                             Thai</option>
                                                         <!-- More options... -->

@@ -12,6 +12,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::post('/dashboard/store', [DashboardController::class, 'store'])->name('store');
 Route::get('/editResume', [DashboardController::class, 'edit'])->name('resume.edit');
 Route::post('/editResume/update', [DashboardController::class, 'update'])->name('resume.update');
+Route::get('/viewResume', [DashboardController::class, 'view'])->name('resume.view');
+
 
 
 Route::get('/resume', function () {

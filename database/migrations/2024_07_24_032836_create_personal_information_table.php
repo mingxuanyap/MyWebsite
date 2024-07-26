@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('age');
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
             $table->string('profile_title');
             $table->longText('about_me');
             $table->string('user_id');

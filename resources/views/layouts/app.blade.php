@@ -155,6 +155,7 @@
             var newLanguageCard = languageCard.cloneNode(true);
             // Clear the select values in the cloned card
             newLanguageCard.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
+            newLanguageCard.querySelectorAll('input').forEach(input => input.value = '');
             // Show the remove button in the cloned card
             newLanguageCard.querySelector('.remove_language').classList.remove('tw-hidden');
             // Append the cloned card to the language section

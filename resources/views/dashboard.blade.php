@@ -320,16 +320,16 @@
                                                     id="language" name="language[]">
                                                     <option value="">Add Language</option>
                                                     <!-- Add all the language options here -->
-                                                    <option value="en">English</option>
-                                                    <option value="ge">German</option>
-                                                    <option value="it">Italian</option>
-                                                    <option value="jp">Japanese</option>
-                                                    <option value="kr">Korean</option>
-                                                    <option value="zh">Mandarin</option>
-                                                    <option value="bm">Malay</option>
-                                                    <option value="ru">Russian</option>
-                                                    <option value="sp">Spanish</option>
-                                                    <option value="th">Thai</option>
+                                                    <option value="English">English</option>
+                                                    <option value="German">German</option>
+                                                    <option value="Italian">Italian</option>
+                                                    <option value="Japanese">Japanese</option>
+                                                    <option value="Korean">Korean</option>
+                                                    <option value="Mandarin">Mandarin</option>
+                                                    <option value="Malay">Malay</option>
+                                                    <option value="Russian">Russian</option>
+                                                    <option value="Spanish">Spanish</option>
+                                                    <option value="Thai">Thai</option>
                                                 </select>
                                             </div>
                                             <div class="tw-w-1/4 tw-pl-4">

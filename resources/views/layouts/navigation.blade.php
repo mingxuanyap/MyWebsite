@@ -12,8 +12,15 @@
 
                 <!-- Navigation Links -->
                 <div class="tw-hidden tw-space-x-8 sm:-tw-my-px sm:tw-ms-10 sm:tw-flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link> --}}
+                    @php
+                        $routeName = request()->route()->getName(); // Get the current route name
+                    @endphp
+
+                    <x-nav-link>
+                        {{ $routeName === 'dashboard' ? __('Create Resume') : ($routeName === 'resume.edit' ? __('Edit Resume') : ($routeName === 'resume.view' ? __('Resume') : ($routeName === 'profile.edit' ? __('Profile') : __('Default Text')))) }}
                     </x-nav-link>
                 </div>
             </div>
@@ -22,12 +29,16 @@
             <div class="tw-hidden sm:tw-flex sm:tw-items-center sm:tw-ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="tw-inline-flex tw-items-center tw-px-3 tw-py-2 tw-border tw-border-transparent tw-text-sm tw-leading-4 tw-font-medium tw-rounded-md tw-text-gray-500 tw-bg-white hover:tw-text-gray-700 focus:tw-outline-none transition tw-ease-in-out tw-duration-150">
+                        <button
+                            class="tw-inline-flex tw-items-center tw-px-3 tw-py-2 tw-border tw-border-transparent tw-text-sm tw-leading-4 tw-font-medium tw-rounded-md tw-text-gray-500 tw-bg-white hover:tw-text-gray-700 focus:tw-outline-none transition tw-ease-in-out tw-duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="tw-ms-1">
-                                <svg class="tw-fill-current tw-h-4 tw-w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                <svg class="tw-fill-current tw-h-4 tw-w-4" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
                                 </svg>
                             </div>
                         </button>
@@ -38,8 +49,12 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
-                        <x-dropdown-link :href="route('resume')">
+                        <x-dropdown-link :href="route('resume.view')">
                             {{ __('Resume') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('dashboard')">
+                            {{ __('Create') }}
                         </x-dropdown-link>
 
                         <x-dropdown-link :href="route('resume.edit')">
@@ -51,8 +66,9 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                style="color: red;">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
@@ -61,11 +77,16 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-tw-me-2 tw-flex tw-items-center sm:tw-hidden">
-                <button @click="open = ! open" class="tw-inline-flex tw-items-center tw-justify-center tw-p-2 tw-rounded-md tw-text-gray-400 hover:tw-text-gray-500 hover:tw-bg-gray-100 focus:tw-outline-none focus:tw-bg-gray-100 focus:tw-text-gray-500 transition tw-duration-150 tw-ease-in-out">
+            <div class="-tw-me-2
+                                tw-flex tw-items-center sm:tw-hidden">
+                <button @click="open = ! open"
+                    class="tw-inline-flex tw-items-center tw-justify-center tw-p-2 tw-rounded-md tw-text-gray-400 hover:tw-text-gray-500 hover:tw-bg-gray-100 focus:tw-outline-none focus:tw-bg-gray-100 focus:tw-text-gray-500 transition tw-duration-150 tw-ease-in-out">
                     <svg class="tw-h-6 tw-w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{ 'tw-hidden': open, 'tw-inline-flex': ! open }" class="tw-inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{ 'tw-hidden': ! open, 'tw-inline-flex': open }" class="tw-hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{ 'tw-hidden': open, 'tw-inline-flex': !open }" class="tw-inline-flex"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                        <path :class="{ 'tw-hidden': !open, 'tw-inline-flex': open }" class="tw-hidden"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -73,7 +94,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'tw-block': open, 'tw-hidden': ! open }" class="tw-hidden sm:tw-hidden">
+    <div :class="{ 'tw-block': open, 'tw-hidden': !open }" class="tw-hidden sm:tw-hidden">
         <div class="tw-pt-2 tw-pb-3 tw-space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
@@ -101,7 +122,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
