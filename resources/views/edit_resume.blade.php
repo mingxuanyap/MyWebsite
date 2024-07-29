@@ -348,35 +348,35 @@
                                                         id="language" name="language[]">
                                                         <option value="">Add Language</option>
                                                         <!-- Add all the language options here -->
+                                                        <option value="Chinese"
+                                                            {{ old('language', $language->language) == 'Chinese' ? 'selected' : '' }}>
+                                                            Chinese</option>
                                                         <option value="English"
-                                                            {{ old('language', $language->language) == 'en' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'English' ? 'selected' : '' }}>
                                                             English</option>
                                                         <option value="German"
-                                                            {{ old('language', $language->language) == 'ge' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'German' ? 'selected' : '' }}>
                                                             German</option>
                                                         <option value="Italian"
-                                                            {{ old('language', $language->language) == 'it' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'Italian' ? 'selected' : '' }}>
                                                             Italian</option>
                                                         <option value="Japanese"
-                                                            {{ old('language', $language->language) == 'jp' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'Japanese' ? 'selected' : '' }}>
                                                             Japanese</option>
                                                         <option value="Korean"
-                                                            {{ old('language', $language->language) == 'kr' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'Korean' ? 'selected' : '' }}>
                                                             Korean</option>
-                                                        <option value="Mandarin"
-                                                            {{ old('language', $language->language) == 'zh' ? 'selected' : '' }}>
-                                                            Mandarin</option>
                                                         <option value="Malay"
-                                                            {{ old('language', $language->language) == 'bm' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'Malay' ? 'selected' : '' }}>
                                                             Malay</option>
                                                         <option value="Russian"
-                                                            {{ old('language', $language->language) == 'ru' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'Russian' ? 'selected' : '' }}>
                                                             Russian</option>
                                                         <option value="Spanish"
-                                                            {{ old('language', $language->language) == 'sp' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'Spanish' ? 'selected' : '' }}>
                                                             Spanish</option>
                                                         <option value="Thai"
-                                                            {{ old('language', $language->language) == 'th' ? 'selected' : '' }}>
+                                                            {{ old('language', $language->language) == 'Thai' ? 'selected' : '' }}>
                                                             Thai</option>
                                                         <!-- More options... -->
                                                     </select>

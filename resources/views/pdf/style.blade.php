@@ -48,6 +48,7 @@
 
     .content {
         position: relative;
+        /* top: -500px; */
         /* height: 100%; */
     }
 
@@ -91,15 +92,15 @@
     }
 
     @page {
-        margin-top: 255px;
-        margin-bottom: 75px;
+        /* margin-top: 255px; */
+        /* margin-bottom: 0px; */
         font-size: 14px;
         /* margin: 100px 25px; */
     }
 
     header {
-        position: fixed;
-        top: -210px;
+        position: relative;
+        top: 0px;
         left: 0px;
         right: 0px;
         line-height: 12px;
@@ -108,51 +109,125 @@
 
     .profile-img {
         position: absolute;
-        left: 540px;
-        top: -22px;
+        left: 500px;
+        top: -20px;
         width: 150px;
         height: 160px;
-        /* border: 3px solid black; */
+        border-radius: 80px 80px;
+
     }
 
-    .summary-content {
-        position: absolute;
-        left: 200px;
-        top: -22px;
-        width: 500px;
-        height: 100px;
-        /* border: 3px solid black; */
-    }
+    .summary::after {
+        border-top: 0.5px solid grey;
+        content: "";
+        clear: both;
+        display: flex;
 
-    .summary-title {
-        position: absolute;
-        left: auto;
-        top: -22px;
-        width: 100px;
-        height: 100px;
-        /* border: 3px solid black; */
     }
 
     .summary {
-        margin-top: 100px;
-        border-bottom: solid 0.5px grey;
+        margin-top: 15px;
+    }
+
+    .summary-title {
+        float: left;
 
     }
 
-    .education-content {
-        position: absolute;
-        left: 200px;
-        top: 125px;
-        width: 500px;
-        height: 100px;
+    .summary-content {
+        float: right;
+        margin-left: 200px;
+        margin-bottom: 15px;
+
+    }
+
+    .education::after {
+        border-top: 0.5px solid grey;
+        content: "";
+        clear: both;
+        display: flex;
+    }
+
+    .education {
+        margin-top: 15px;
     }
 
     .education-title {
-        position: absolute;
-        left: auto;
-        top: 125px;
-        width: 100px;
-        height: 100px;
+        /* border: 3px solid black; */
+        float: left clear:both;
+    }
+
+    .education-content {
+        margin-left: 200px;
+        margin-bottom: 15px;
         /* border: 3px solid black; */
     }
+
+    .experience::after {
+        border-top: 0.5px solid grey;
+        content: "";
+        clear: both;
+        display: flex;
+    }
+
+    .experience {
+        margin-top: 15px;
+    }
+
+    .experience-title {
+        /* border: 3px solid black; */
+        float: left clear:both;
+    }
+
+    .experience-content {
+        margin-left: 200px;
+        margin-bottom: 15px;
+        /* border: 3px solid black; */
+    }
+
+    .skill::after {
+        border-top: 0.5px solid grey;
+        content: "";
+        clear: both;
+        display: flex;
+    }
+
+    .skill {
+        margin-top: 15px;
+    }
+
+    .skill-title {
+        /* border: 3px solid black; */
+        float: left clear:both;
+    }
+
+    .skill-content {
+        margin-left: 200px;
+        margin-bottom: 15px;
+        /* border: 3px solid black; */
+    }
+
+    .language::after {
+        /* border-top: 0.5px solid grey; */
+        content: "";
+        clear: both;
+        display: flex;
+    }
+
+    .language {
+        margin-top: 15px;
+    }
+
+    .language-title {
+        /* border: 3px solid black; */
+        float: left clear:both;
+    }
+
+    .language-content {
+        margin-left: 200px;
+        margin-bottom: 15px;
+        /* border: 3px solid black; */
+    }
+
+
 </style>

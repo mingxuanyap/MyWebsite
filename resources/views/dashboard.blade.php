@@ -320,12 +320,12 @@
                                                     id="language" name="language[]">
                                                     <option value="">Add Language</option>
                                                     <!-- Add all the language options here -->
+                                                    <option value="Chinese">Chinese</option>
                                                     <option value="English">English</option>
                                                     <option value="German">German</option>
                                                     <option value="Italian">Italian</option>
                                                     <option value="Japanese">Japanese</option>
                                                     <option value="Korean">Korean</option>
-                                                    <option value="Mandarin">Mandarin</option>
                                                     <option value="Malay">Malay</option>
                                                     <option value="Russian">Russian</option>
                                                     <option value="Spanish">Spanish</option>

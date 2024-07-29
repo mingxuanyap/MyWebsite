@@ -50,8 +50,7 @@ class DashboardController extends Controller
             $picture = time() . '-' . $request->file('image_path')->getClientOriginalName();
             $request->file('image_path')->move(public_path('assets/img/profile'), $picture);
             $personal_info->image_path = 'assets/img/profile/' . $picture;
-        }
-        else{
+        } else {
             $personal_info->image_path = null;
         }
 
@@ -69,7 +68,7 @@ class DashboardController extends Controller
         $contact_info->save();
 
         // Store Education Information
-        
+
         // dd($request->all());
         if (!empty($request->degree_title)) {
             foreach ($request->degree_title as $index => $degree_title) {
@@ -346,12 +345,38 @@ class DashboardController extends Controller
     }
 
 
-    public function printPDF(Request $request){
+    public function printPDF(Request $request)
+    {
+
+        $user_id = Auth::user()->id;
+
+        $personal_info = PersonalInformation::where('user_id', $user_id)->first();
+
+        if (!$personal_info) {
+            return redirect()->route('dashboard')->withErrors('Personal information not found.');
+        }
+
+        // Retrieve related information
+        $contact_info = ContactInformation::where('profile_id', $personal_info->id)->first();
+        $education_info = Education::where('profile_id', $personal_info->id)->get();
+        $experience_info = Experience::where('profile_id', $personal_info->id)->get();
+        $project_info = Projects::where('profile_id', $personal_info->id)->get();
+        $skill_info = Skills::where('profile_id', $personal_info->id)->get();
+        $language_info = Languages::where('profile_id', $personal_info->id)->get();
 
         $documentTitle = 'Resume';
-                return Pdf::loadView("pdf.resume", compact('documentTitle'))
-                    ->set_option("isPhpEnabled", true)
-                    ->setPaper("a4")
-                    ->stream('docno.pdf');
+        return Pdf::loadView("pdf.resume", compact(
+            'documentTitle',
+            'personal_info',
+            'contact_info',
+            'education_info',
+            'experience_info',
+            'project_info',
+            'skill_info',
+            'language_info'
+        ))
+            ->set_option("isPhpEnabled", true)
+            ->setPaper("a4")
+            ->stream('docno.pdf');
     }
 }
