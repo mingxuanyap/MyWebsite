@@ -192,6 +192,14 @@
                 icon: "success"
             });
         </script>
+    @elseif (Session::has('resume-notfound'))
+        <script>
+            Swal.fire({
+                title: "Error",
+                text: "Please create resume first!",
+                icon: "error"
+            });
+        </script>
     @endif
 </body>
 

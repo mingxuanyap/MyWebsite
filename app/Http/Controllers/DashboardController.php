@@ -148,7 +148,7 @@ class DashboardController extends Controller
         ])->first();
 
         if (!$personal_information) {
-            return redirect()->route('dashboard')->withErrors('No personal information found for this user.');
+            return redirect()->route('dashboard')->with('resume-notfound','No personal information found for this user.');
         }
 
         return view('edit_resume', compact('personal_information'));
@@ -322,7 +322,7 @@ class DashboardController extends Controller
         $personal_info = PersonalInformation::where('user_id', $user_id)->first();
 
         if (!$personal_info) {
-            return redirect()->route('dashboard')->withErrors('Personal information not found.');
+            return redirect()->route('dashboard')->with('resume-notfound','Personal information not found.');
         }
 
         // Retrieve related information
@@ -353,7 +353,7 @@ class DashboardController extends Controller
         $personal_info = PersonalInformation::where('user_id', $user_id)->first();
 
         if (!$personal_info) {
-            return redirect()->route('dashboard')->withErrors('Personal information not found.');
+            return redirect()->route('dashboard')->with('resume-notfound','Personal information not found.');
         }
 
         // Retrieve related information
