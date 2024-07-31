@@ -365,16 +365,16 @@ class DashboardController extends Controller
         $language_info = Languages::where('profile_id', $personal_info->id)->get();
 
         $documentTitle = 'Resume';
-        return view("pdf.resume", compact(
-            'documentTitle',
-            'personal_info',
-            'contact_info',
-            'education_info',
-            'experience_info',
-            'project_info',
-            'skill_info',
-            'language_info'
-        ));
+        // return view("pdf.resume", compact(
+        //     'documentTitle',
+        //     'personal_info',
+        //     'contact_info',
+        //     'education_info',
+        //     'experience_info',
+        //     'project_info',
+        //     'skill_info',
+        //     'language_info'
+        // ));
         return Pdf::loadView("pdf.resume", compact(
             'documentTitle',
             'personal_info',
