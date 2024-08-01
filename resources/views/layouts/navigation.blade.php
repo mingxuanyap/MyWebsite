@@ -135,6 +135,15 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
+                <!-- Print PDF Form -->
+                <form method="POST" action="{{ route('print-pdf') }}">
+                    @csrf
+                    <x-responsive-nav-link :href="route('print-pdf')"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
+                        {{ __('Print Pdf') }}
+                    </x-responsive-nav-link>
+                </form>
+
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
