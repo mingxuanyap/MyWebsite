@@ -24,11 +24,12 @@
 
         @media (max-width: 600px) {
             .login-card {
-                width: 300px;
+                width: 350px;
             }
 
-            .card-logo{
+            .logo{
                 margin-top: 75px;
+
             }
 
             #body {
@@ -41,9 +42,9 @@
 <body class="tw-font-sans tw-text-gray-900 tw-antialiased">
     <div id="body"
         class="tw-min-h-screen tw-flex tw-flex-col sm:tw-justify-center tw-items-center tw-pt-6 sm:tw-pt-0 tw-bg-gray-100">
-        <div>
+        <div class="logo">
             <a href="/">
-                <x-application-logo class="card-logo tw-w-20 tw-h-20 tw-fill-current tw-text-gray-500" />
+                <x-application-logo class="tw-w-20 tw-h-20 tw-fill-current tw-text-gray-500" />
             </a>
         </div>
 
