@@ -134,7 +134,7 @@ return array(
          * @link http://www.ros.co.nz/pdf
          * @link http://www.php.net/image
          */
-        "pdf_backend" => "PDFLib",
+        "pdf_backend" => "CPDF",
 
         /**
          * PDFlib license key
